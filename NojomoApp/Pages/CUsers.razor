@@ -1,0 +1,184 @@
+﻿@page "/usuarios"
+@inject IModalService modal
+@inject IUserService UserService
+
+
+
+<h3>Usuarios</h3>
+<br />
+<button @onclick="ShowModalAdd" class="btn btn-primary">Alta</button>
+<br />
+<br />
+
+@if (objMain == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="col-12">
+        <RadzenFieldset Text="Usuarios">
+            <div class="row">
+                <RadzenGrid @ref="usersGrid" AllowFiltering="true" AllowPaging="true" PageSize="5" AllowSorting="true" EditMode="DataGridEditMode.Single"
+                            FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                            Data="@objMain" TItem="UserDto" FilterMode="FilterMode.Advanced" ColumnWidth="120px">
+                    <Columns>
+
+                        <RadzenGridColumn TItem="UserDto" Context="user" Title="Selección" Bubble="false" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="100px">
+                            <Template Context="user">
+                                <RadzenCheckBox id="checkall" TValue="Boolean" @bind-Value="user.Check">
+                                </RadzenCheckBox>
+                            </Template>
+                        </RadzenGridColumn>
+                        @*<RadzenGridColumn TItem="UserDto" Property="Id" Title="ID" />*@
+                        <RadzenGridColumn TItem="UserDto" Property="Alias" Title="Alias" />
+                        <RadzenGridColumn TItem="UserDto" Property="Nombre" Title="Nombre" />
+                        <RadzenGridColumn TItem="UserDto" Property="Tipo" Title="Tipo" />
+                        @*<RadzenGridColumn TItem="UserDto" Property="Precio" Title="Precio" />*@
+                        <RadzenGridColumn TItem="UserDto" Property="Email" Title="Email" />
+                        <RadzenGridColumn TItem="UserDto" Property="Telefono" Title="Telefono" />
+
+                        <RadzenGridColumn TItem="UserDto" Context="user" Bubble="false" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="70px">
+                            <Template Context="user">
+                                <RadzenButton Icon="edit" Size="ButtonSize.Small" Click="@(args => EditRow(user))">
+                                </RadzenButton>
+                            </Template>
+                        </RadzenGridColumn>
+
+                        <RadzenGridColumn TItem="UserDto" Context="user" Bubble="false" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="70px">
+                            <Template Context="user">
+                                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@(args => DeleteRow(user))">
+                                </RadzenButton>
+                            </Template>
+                        </RadzenGridColumn>
+                    </Columns>
+                </RadzenGrid>
+            </div>
+
+        </RadzenFieldset>
+
+        <br />
+        <br />
+        <button @onclick="deleteMultiple" class="btn btn-primary">Borrar selección</button>
+    </div>
+
+
+    <Confirm @ref="DeleteConfirmation" ConfirmationChanged="ConfirmDelete_Click"
+             ConfirmationMessage=@($"¿Estás seguro de querer borrar a \"{userDelete.Nombre}\"?")>
+    </Confirm>
+
+    <Confirm @ref="DeleteConfirmationMultiple" ConfirmationChanged="ConfirmDeleteMultiple_Click"
+             ConfirmationMessage=@($"¿Estas seguro de querer borrar a todos los usuarios seleccionados?")>
+    </Confirm>
+}
+
+@code {
+    RadzenGrid<UserDto> usersGrid;
+    public UserDto user { get; set; }
+    public UserDto userDelete { get; set; }
+
+    private IEnumerable<UserDto> objMain;
+
+    protected override async Task OnInitializedAsync()
+    {
+        base.OnInitialized();
+        user = new UserDto();
+        userDelete = new UserDto();
+        await reload();
+
+    }
+
+    protected async Task reload()
+    {
+        objMain = await UserService.GetUserServiceAsync();
+
+    }
+
+    private void deleteMultiple()
+    {
+        DeleteConfirmationMultiple.Show();
+    }
+
+    void DeleteRow(UserDto user)
+    {
+        userDelete = user;
+        DeleteConfirmation.Show();
+    }
+
+    protected Data.ConfirmBase DeleteConfirmation { get; set; }
+    protected Data.ConfirmBase DeleteConfirmationMultiple { get; set; }
+
+    protected async Task ConfirmDelete_Click(bool deleteConfirmed)
+    {
+        if (deleteConfirmed)
+        {
+            if (objMain.Contains(userDelete))
+            {
+                var res = UserService.DeleteUserServiceAsync(userDelete.Id);
+                await reload();
+                await usersGrid.Reload();
+            }
+            else
+            {
+                usersGrid.CancelEditRow(userDelete);
+            }
+        }
+    }
+
+    protected async Task ConfirmDeleteMultiple_Click(bool deleteConfirmed)
+    {
+        if (deleteConfirmed)
+        {
+            var check = objMain.Where(x => x.Check == true).ToList();
+            await UserService.DeleteMultipleUserServiceAsync(check);
+            await reload();
+            await usersGrid.Reload();
+
+        }
+    }
+
+    async Task EditRow(UserDto user)
+    {
+        var options = new ModalOptions()
+        {
+            Animation = ModalAnimation.FadeInOut(1)
+        };
+
+        var parameters = new ModalParameters();
+        parameters.Add(nameof(user.Id), user.Id);
+
+        var formModal = modal.Show<UpdateUser>("Actualizar Usuario", parameters, options);
+        var result = await formModal.Result;
+
+        if (result.Cancelled)
+        {
+            await reload();
+            await usersGrid.Reload();
+        }
+        else
+        {
+            Console.WriteLine(result.Data);
+        }
+    }
+
+    async Task ShowModalAdd()
+    {
+        var options = new ModalOptions()
+        {
+            Animation = ModalAnimation.FadeInOut(1)
+        };
+        var formModal = modal.Show<AltaUsuario>("Alta Usuario",options);
+        var result = await formModal.Result;
+
+        if (result.Cancelled)
+        {
+            await reload();
+            await usersGrid.Reload();
+        }
+        else
+        {
+            Console.WriteLine(result.Data);
+        }
+    }
+
+}

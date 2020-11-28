@@ -1,0 +1,123 @@
+﻿@page "/addUser"
+@using NojomoApp.Data.UserData
+@inject IUserService UserService;
+@inject IJSRuntime JSRuntime;
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
+
+@*<div id="divServerValidations" class="col-10 alert alert-info">
+
+</div>*@
+<Validations IsVisible="IsVisible" Result="Result">
+    <span>Ususario : </span>@RecordName
+</Validations>
+
+<RadzenFieldset Text="Datos del usuario">
+    <EditForm Model="@user" OnValidSubmit="@SaveUser">
+        <DataAnnotationsValidator />
+
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">Alias :</label>
+            <input @ref="firstNameText" class="form-control col-3" @bind="user.Alias" placeholder="alias" />
+            &nbsp;<ValidationMessage For="@(() => user.Alias)" />
+        </div>
+        <br />
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">Nombre :</label>
+            <InputText class="form-control col-3" @bind-Value="user.Nombre" placeholder="nombre" />
+            &nbsp;<ValidationMessage For="@(() => user.Nombre)" />
+        </div>
+        <br />
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">Tipo :</label>
+            <InputSelect @bind-Value="user.Tipo" class="form-control col-3">
+                @if (@Tipo != null)
+                {
+                    @foreach (var tipo in Tipo)
+                    {
+                        <option value="1">@tipo</option>
+                    }
+                }
+            </InputSelect>
+
+            @*<InputNumber class="form-control col-3" @bind-Value="user.Tipo" placeholder="tipo" />
+                &nbsp;<ValidationMessage For="@(() => user.Tipo)" />*@
+        </div>
+        <br />
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">Precio :</label>
+            <InputNumber class="form-control col-3" @bind-Value="user.Precio" placeholder="precio" />
+            &nbsp;<ValidationMessage For="@(() => user.Precio)" />
+        </div>
+        <br />
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">Email :</label>
+            <InputText class="form-control col-3" @bind-Value="user.Email" placeholder="email" />
+            &nbsp;<ValidationMessage For="@(() => user.Email)" />
+        </div>
+        <br />
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">Telefono:</label>
+            <InputText class="form-control col-3" @bind-Value="user.Telefono" placeholder="telefono" />
+            &nbsp;<ValidationMessage For="@(() => user.Telefono)" />
+        </div>
+        <br />
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">Password :</label>
+            <RadzenPassword class="form-control col-3" @bind-Value="user.Password" placeholder="password" />
+            @*<InputText  class="form-control col-3" @bind-Value="user.Password" placeholder="password" type="password"/>*@
+            &nbsp;<ValidationMessage For="@(() => user.Password)" />
+        </div>
+        <br />
+
+        <br />
+        <div class="col-12 row">
+            <span class="col-2"></span>
+            <input type="submit" class="form-control col-1 btn btn-primary" value="Save" />
+            @*<span>&nbsp;</span>
+            <input type="submit" class="form-control col-1 btn btn-primary" value="Clear" />*@
+        </div>
+    </EditForm>
+
+</RadzenFieldset>
+
+
+
+
+@code {
+    public UserDto user { get; set; }
+    ElementReference firstNameText;
+    public string[] Tipo { get; set; }
+   
+    public bool IsVisible { get; set; }
+    public string RecordName { get; set; }
+    public bool Result { get; set; }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && Tipo == null)
+        {
+            Tipo = await JSRuntime.InvokeAsync<string[]>("getTipo");
+            StateHasChanged();
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        user = new UserDto();
+    }
+
+    private async Task SaveUser()
+    {
+        Result = await UserService.SaveUserServiceAsync(user);
+        IsVisible = true;
+
+        var nombre = user.Nombre;
+        RecordName = nombre;
+        user = new Data.UserData.UserDto();
+
+        //  await JSRuntime.InvokeVoidAsync("saveMessage", nombre);
+        await JSRuntime.InvokeVoidAsync("setFocusOnElement", firstNameText);
+        //navigationManager.NavigateTo($"/usuarios");
+
+
+    }
+}
