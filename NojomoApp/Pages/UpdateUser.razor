@@ -5,9 +5,6 @@
 @inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
 
 
-@*<div id="divServerValidations" class="col-10 alert alert-info">
-
-    </div>*@
 <Validations IsVisible="IsVisible" Result="Result">
     <span>Ususario : </span>@RecordName
 </Validations>
@@ -32,13 +29,10 @@
         <div class="col-12 row">
             <label class="col-2 font-weight-bold">Tipo :</label>
             <InputSelect @bind-Value="user.Tipo" class="form-control col-3">
-                @if (@Tipo != null)
-                {
-                    @foreach (var tipo in Tipo)
-                    {
-                        <option value="1">@tipo</option>
-                    }
-                }
+                <option value=0>--Seleccione--</option>
+                <option value=1>Administrador</option>
+                <option value=2>Agente</option>
+                <option value=3>Cliente</option>
             </InputSelect>
 
             @*<InputNumber class="form-control col-3" @bind-Value="user.Tipo" placeholder="tipo" />
@@ -59,7 +53,7 @@
         <br />
         <div class="col-12 row">
             <label class="col-2 font-weight-bold">Telefono:</label>
-            <InputText class="form-control col-3" @bind-Value="user.Telefono" placeholder="telefono" />
+            <InputText class="form-control col-3" @bind-Value="user.Telefono" placeholder="telefono"  />
             &nbsp;<ValidationMessage For="@(() => user.Telefono)" />
         </div>
         <br />
@@ -103,15 +97,6 @@
     public bool IsVisible { get; set; }
     public string RecordName { get; set; }
     public bool Result { get; set; }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender && Tipo == null)
-        {
-            Tipo = await JSRuntime.InvokeAsync<string[]>("getTipo");
-            StateHasChanged();
-        }
-    }
 
     protected override async Task OnInitializedAsync()
     {

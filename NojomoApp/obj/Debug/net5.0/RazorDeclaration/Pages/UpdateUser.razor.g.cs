@@ -140,7 +140,7 @@ using NojomoApp.Data.UserData;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 95 "C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoAppRepositorio\NojomoApp\Pages\UpdateUser.razor"
+#line 99 "C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoAppRepositorio\NojomoApp\Pages\UpdateUser.razor"
        
     [Parameter]
     public int Id { get; set; }
