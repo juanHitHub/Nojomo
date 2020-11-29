@@ -5628,11 +5628,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoApp\\Nojomo.IntegrationTest\\Nojomo.IntegrationTest.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoAppRepositorio\\Nojomo.IntegrationTest\\Nojomo.IntegrationTest.csproj",
       "projectName": "Nojomo.IntegrationTest",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoApp\\Nojomo.IntegrationTest\\Nojomo.IntegrationTest.csproj",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoAppRepositorio\\Nojomo.IntegrationTest\\Nojomo.IntegrationTest.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoApp\\Nojomo.IntegrationTest\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoAppRepositorio\\Nojomo.IntegrationTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

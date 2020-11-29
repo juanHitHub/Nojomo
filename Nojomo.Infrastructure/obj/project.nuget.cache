@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "N9ZydFJ9tkFGCEmTOrqBpG206WMkdB88/xcN1dmgHUaqMzRIWdK6Osx02I/SkIqP2Oz3n2u5cWGZumS28/ZtBg==",
+  "dgSpecHash": "10Zy6uO0GbU6PWNwbLo3K0601VVZEdga4MQQewijvUDIOWBn/mK2j7JcxZdpW6K91bqms1qQK2g5wZrmFOQ4PA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoApp\\Nojomo.Infrastructure\\Nojomo.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoAppRepositorio\\Nojomo.Infrastructure\\Nojomo.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

@@ -21,9 +21,10 @@ namespace NojomoApp.Data.UserData
         public decimal? Precio { get; set; }
         [Required(ErrorMessage = "Email es requerido")]
         [DataType(DataType.EmailAddress)]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage ="El formato del Email es incorrecto"]
         public string Email { get; set; }
         [Required(ErrorMessage = "Telefono es requerido")]
+        [StringLength(10, MinimumLength = 10, ErrorMessage = "El Teléfono debe ser de 10 dígitos")]
         public string Telefono { get; set; }
           
             public DateTime? Fecharegistro { get; set; }
@@ -33,8 +34,12 @@ namespace NojomoApp.Data.UserData
             public int? Status { get; set; }
         [Required(ErrorMessage = "Password  es requerido")]
         public string Password { get; set; }
-           
-            public int? Cestas { get; set; }
+
+        [Required(ErrorMessage = "Confirmar Password  es requerido")]
+        [Compare("Password",ErrorMessage ="Password no coincide")]
+        public string ConfirmPassword { get; set; }
+
+        public int? Cestas { get; set; }
            
             public int? Direcciones { get; set; }
            

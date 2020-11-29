@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/QmxGXeBMW8Z3ZIoWMZlvedvb0HnePt1llaOT1uiBZSAzv/DhxDK51yIG+btjc6tskv3RHTK3Si0naiTe0/Kqg==",
+  "dgSpecHash": "BJLqihZPkbwtrybs6k7XRK1Gw3C4ODSId2Z2MlO5TxMtVCjYWWoZ3G86CiLBI3caO5rqxT0p4gd8NKGBKyGY/g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoApp\\Nojomo.IntegrationTest\\Nojomo.IntegrationTest.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoAppRepositorio\\Nojomo.IntegrationTest\\Nojomo.IntegrationTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\coverlet.collector\\1.3.0\\coverlet.collector.1.3.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.codecoverage\\16.7.1\\microsoft.codecoverage.16.7.1.nupkg.sha512",

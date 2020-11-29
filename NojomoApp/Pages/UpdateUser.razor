@@ -42,7 +42,7 @@
             </InputSelect>
 
             @*<InputNumber class="form-control col-3" @bind-Value="user.Tipo" placeholder="tipo" />
-                &nbsp;<ValidationMessage For="@(() => user.Tipo)" />*@
+            &nbsp;<ValidationMessage For="@(() => user.Tipo)" />*@
         </div>
         <br />
         <div class="col-12 row">
@@ -68,6 +68,13 @@
             <RadzenPassword class="form-control col-3" @bind-Value="user.Password" placeholder="password" />
             @*<InputText  class="form-control col-3" @bind-Value="user.Password" placeholder="password" type="password"/>*@
             &nbsp;<ValidationMessage For="@(() => user.Password)" />
+        </div>
+        <br />
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">Confirmar Password :</label>
+            <RadzenPassword class="form-control col-3" @bind-Value="user.ConfirmPassword" placeholder="Confirmar password" />
+            @*<InputText  class="form-control col-3" @bind-Value="user.Password" placeholder="password" type="password"/>*@
+            &nbsp;<ValidationMessage For="@(() => user.ConfirmPassword)" />
         </div>
         <br />
 

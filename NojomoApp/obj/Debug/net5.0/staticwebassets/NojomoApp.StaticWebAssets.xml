@@ -1,5 +1,5 @@
 ﻿<StaticWebAssets Version="1.0">
-  <ContentRoot BasePath="/" Path="C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoApp\NojomoApp\obj\Debug\net5.0\scopedcss\bundle\" />
+  <ContentRoot BasePath="/" Path="C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoAppRepositorio\NojomoApp\obj\Debug\net5.0\scopedcss\bundle\" />
   <ContentRoot BasePath="_content/Blazored.Modal" Path="C:\Users\Admin\.nuget\packages\blazored.modal\5.1.0\build\..\staticwebassets\" />
   <ContentRoot BasePath="_content/MatBlazor" Path="C:\Users\Admin\.nuget\packages\matblazor\2.8.0\build\..\staticwebassets\" />
   <ContentRoot BasePath="_content/Radzen.Blazor" Path="C:\Users\Admin\.nuget\packages\radzen.blazor\2.17.11\build\..\staticwebassets\" />

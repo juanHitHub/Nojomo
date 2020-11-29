@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xq/W/2pQyMubxfrIwTsiRo1M+meqQKmsQM7rBgTwKDbsQTeLzMHqKvlhvqJa+Yq/Q+ofIe+0yZ/cvqRZK3lrHQ==",
+  "dgSpecHash": "lDLjySFem/d4fMRNZek5/ru9i69quz+4DMpGIvIAXF5j7n2dwE1oPsDDbrEJHqN89gHiuPqL53QQQLn5wabytA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoApp\\NojomoApp\\NojomoApp.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoAppRepositorio\\NojomoApp\\NojomoApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\blazored.modal\\5.1.0\\blazored.modal.5.1.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\matblazor\\2.8.0\\matblazor.2.8.0.nupkg.sha512",

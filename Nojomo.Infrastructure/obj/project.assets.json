@@ -838,11 +838,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoApp\\Nojomo.Infrastructure\\Nojomo.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoAppRepositorio\\Nojomo.Infrastructure\\Nojomo.Infrastructure.csproj",
       "projectName": "Nojomo.Infrastructure",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoApp\\Nojomo.Infrastructure\\Nojomo.Infrastructure.csproj",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoAppRepositorio\\Nojomo.Infrastructure\\Nojomo.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoApp\\Nojomo.Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoAppRepositorio\\Nojomo.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -863,8 +863,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoApp\\Nojomo.Core\\Nojomo.Core.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoApp\\Nojomo.Core\\Nojomo.Core.csproj"
+            "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoAppRepositorio\\Nojomo.Core\\Nojomo.Core.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoAppRepositorio\\Nojomo.Core\\Nojomo.Core.csproj"
             }
           }
         }

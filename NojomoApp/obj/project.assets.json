@@ -777,11 +777,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoApp\\NojomoApp\\NojomoApp.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoAppRepositorio\\NojomoApp\\NojomoApp.csproj",
       "projectName": "NojomoApp",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoApp\\NojomoApp\\NojomoApp.csproj",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoAppRepositorio\\NojomoApp\\NojomoApp.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoApp\\NojomoApp\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoAppRepositorio\\NojomoApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

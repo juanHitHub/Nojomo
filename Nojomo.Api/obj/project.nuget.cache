@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "U36PFo96D9+usb5PzMKmwZmeNYC+VDJC6emLz7rrQhefZNXvFndDf8Zj3bmTJZ0JBuG9DvQju4qSY2MmtDW7iA==",
+  "dgSpecHash": "Qvf6lmZOUShX/beK6GGwuJsZrX2HKZCmBJLfE3XIIZl2QyVZKsYDR3Plnfd9lB3d0e49xgNs8UT7bbqxKfgZWw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoApp\\Nojomo.Api\\Nojomo.Api.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Desktop\\Escritorio\\Trabajo\\NojomoAppRepositorio\\Nojomo.Api\\Nojomo.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.0\\microsoft.aspnetcore.authentication.jwtbearer.5.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\5.0.0\\microsoft.aspnetcore.authentication.openidconnect.5.0.0.nupkg.sha512",
