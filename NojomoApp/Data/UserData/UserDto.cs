@@ -33,6 +33,7 @@ namespace NojomoApp.Data.UserData
            
             public int? Status { get; set; }
         [Required(ErrorMessage = "Password  es requerido")]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,15}$", ErrorMessage = "El password debe ser de 8 a 15 caracteres,  contener al menos un número, contener al menos una letra mayúscula, contener al menos una letra minúscula y un caracter especial")]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Confirmar Password  es requerido")]

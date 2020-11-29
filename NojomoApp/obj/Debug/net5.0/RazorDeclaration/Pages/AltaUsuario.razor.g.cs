@@ -140,40 +140,24 @@ using NojomoApp.Data.UserData;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 95 "C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoAppRepositorio\NojomoApp\Pages\AltaUsuario.razor"
+#line 88 "C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoAppRepositorio\NojomoApp\Pages\AltaUsuario.razor"
        
     public UserDto user { get; set; }
     ElementReference firstNameText;
     public string[] Tipo { get; set; }
 
-    private EditContext editContext;
-
     public bool IsVisible { get; set; }
     public string RecordName { get; set; }
     public bool Result { get; set; }
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender && Tipo == null)
-        {
-            Tipo = await JSRuntime.InvokeAsync<string[]>("getTipo");
-            StateHasChanged();
-        }
-    }
-
     protected override void OnInitialized()
     {
         user = new UserDto();
-        editContext = new EditContext(user);
-
     }
 
 
     private async Task SaveUser()
     {
-        var isValid = editContext.Validate();
-
-
         Result = await UserService.SaveUserServiceAsync(user);
         IsVisible = true;
 

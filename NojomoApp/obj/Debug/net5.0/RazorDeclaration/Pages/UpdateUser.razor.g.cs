@@ -140,7 +140,7 @@ using NojomoApp.Data.UserData;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 99 "C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoAppRepositorio\NojomoApp\Pages\UpdateUser.razor"
+#line 89 "C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoAppRepositorio\NojomoApp\Pages\UpdateUser.razor"
        
     [Parameter]
     public int Id { get; set; }
@@ -152,15 +152,6 @@ using NojomoApp.Data.UserData;
     public bool IsVisible { get; set; }
     public string RecordName { get; set; }
     public bool Result { get; set; }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender && Tipo == null)
-        {
-            Tipo = await JSRuntime.InvokeAsync<string[]>("getTipo");
-            StateHasChanged();
-        }
-    }
 
     protected override async Task OnInitializedAsync()
     {
