@@ -115,6 +115,14 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.8.0, )"
+            },
+            "jose-jwt": {
+              "target": "Package",
+              "version": "[2.6.1, )"
             }
           },
           "imports": [

@@ -1,89 +1,106 @@
-﻿using RestSharp;
+﻿using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace NojomoApp.Data.UserData
 {
-    public class UserService: IUserService
+    public class UserService:IUserService
     {
-        public Task<IEnumerable<UserDto>> GetUserServiceAsync()
+        public HttpClient _httpClient { get; }
+        public AppSettings _appSettings { get; }
+        public UserService(HttpClient httpClient, IOptions<AppSettings> appSettings)
         {
-            string urlREST = "https://localhost:44390/api/User";
-            var client = new RestClient(urlREST);
-            var request = new RestRequest(Method.GET);
-            IRestResponse responseApp = null;
-            responseApp = client.Get(request);
-            return Task.FromResult(Newtonsoft.Json.JsonConvert.DeserializeObject<IEnumerable<UserDto>>(responseApp.Content));
+            _appSettings = appSettings.Value;
+
+            httpClient.BaseAddress = new Uri(_appSettings.UserStoresBaseAddress);
+
+            httpClient.DefaultRequestHeaders.Add("User-Agent", "BlazorServer");
+
+            _httpClient = httpClient;
+        }
+        public async Task<UserDto> LoginAsync(UserDto user)
+        {
+           // user.Password = Utility.Encrypt(user.Password);
+            string serializedUser = JsonConvert.SerializeObject(user);
+
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, "Users/Login");
+            requestMessage.Content = new StringContent(serializedUser);
+
+            requestMessage.Content.Headers.ContentType
+                = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+
+            var response = await _httpClient.SendAsync(requestMessage);
+
+            var responseStatusCode = response.StatusCode;
+            string responseBody = await response.Content.ReadAsStringAsync();
+
+            var returnedUser = JsonConvert.DeserializeObject<UserDto>(responseBody);
+
+            return await Task.FromResult(returnedUser);
+
         }
 
-        public Task<UserDto> GetUserIdServiceAsync(int id)
+        public async Task<UserDto> RegisterUserAsync(UserDto user)
         {
-            string urlREST = "https://localhost:44390/api/User/"+id;
-            var client = new RestClient(urlREST);
-            var request = new RestRequest(Method.GET);
-            IRestResponse responseApp = null;
-            responseApp = client.Get(request);
-            return Task.FromResult(Newtonsoft.Json.JsonConvert.DeserializeObject<UserDto>(responseApp.Content));
+            user.Password = Utility.Encrypt(user.Password);
+            string serializedUser = JsonConvert.SerializeObject(user);
+
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, "Users/RegisterUser");
+            requestMessage.Content = new StringContent(serializedUser);
+
+            requestMessage.Content.Headers.ContentType
+                = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+
+            var response = await _httpClient.SendAsync(requestMessage);
+
+            var responseStatusCode = response.StatusCode;
+            var responseBody = await response.Content.ReadAsStringAsync();
+
+            var returnedUser = JsonConvert.DeserializeObject<UserDto>(responseBody);
+
+            return await Task.FromResult(returnedUser);
         }
 
-
-        public Task<bool> SaveUserServiceAsync(UserDto user)
+        public async Task<UserDto> RefreshTokenAsync(RefreshRequest refreshRequest)
         {
-            //Eliminar en cuanto se arreglen el diseño de base de datos
-            user.Fecharegistro = DateTime.UtcNow;
-            user.Permisos = 1;
-            user.Status = 1;
-            user.Cestas = 1;
-            user.Direcciones = 1;
-            user.Direccionpredeterminadaid = 1;
-            user.Datosfiscales = 1;
-            user.Datosfiscalespredeterminadosid = 1;
-            user.Ordenes = 1;
+            string serializedUser = JsonConvert.SerializeObject(refreshRequest);
 
-            string urlREST = "https://localhost:44390/api/User";
-            var client = new RestClient(urlREST);
-            var request = new RestRequest(Method.POST);
-            request.AddJsonBody(user);
-            IRestResponse responseApp = null;
-            responseApp = client.Post(request);
-            return Task.FromResult(true);
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, "Users/RefreshToken");
+            requestMessage.Content = new StringContent(serializedUser);
+
+            requestMessage.Content.Headers.ContentType
+                = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+
+            var response = await _httpClient.SendAsync(requestMessage);
+
+            var responseStatusCode = response.StatusCode;
+            var responseBody = await response.Content.ReadAsStringAsync();
+
+            var returnedUser = JsonConvert.DeserializeObject<UserDto>(responseBody);
+
+            return await Task.FromResult(returnedUser);
         }
 
-        public Task<bool> DeleteUserServiceAsync(int id)
+        public async Task<UserDto> GetUserByAccessTokenAsync(string accessToken)
         {
-            string urlREST = "https://localhost:44390/api/User/"+id;
-            var client = new RestClient(urlREST);
-            var request = new RestRequest(Method.DELETE);
-            IRestResponse responseApp = null;
-            responseApp = client.Delete(request);
-            return Task.FromResult(true);
-        }
+            string serializedRefreshRequest = JsonConvert.SerializeObject(accessToken);
 
-        public Task<bool> DeleteMultipleUserServiceAsync(IEnumerable<UserDto> users)
-        {
-            foreach (var user in users)
-            {
-                string urlREST = "https://localhost:44390/api/User/" + user.Id;
-                var client = new RestClient(urlREST);
-                var request = new RestRequest(Method.DELETE);
-                IRestResponse responseApp = null;
-                responseApp = client.Delete(request);
-            }
-            
-            return Task.FromResult(true);
-        }
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, "Users/GetUserByAccessToken");
+            requestMessage.Content = new StringContent(serializedRefreshRequest);
 
-        public Task<bool> UpdateUserServiceAsync(int id,UserDto user)
-        {
-            string urlREST = "https://localhost:44390/api/User/"+id;
-            var client = new RestClient(urlREST);
-            var request = new RestRequest(Method.PUT);
-            request.AddJsonBody(user);
-            IRestResponse responseApp = null;
-            responseApp = client.Put(request);
-            return Task.FromResult(true);
+            requestMessage.Content.Headers.ContentType
+                = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+
+            var response = await _httpClient.SendAsync(requestMessage);
+
+            var responseStatusCode = response.StatusCode;
+            var responseBody = await response.Content.ReadAsStringAsync();
+
+            var returnedUser = JsonConvert.DeserializeObject<UserDto>(responseBody);
+
+            return await Task.FromResult(returnedUser);
         }
 
     }

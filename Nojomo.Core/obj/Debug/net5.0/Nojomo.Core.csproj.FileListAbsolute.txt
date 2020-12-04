@@ -10,3 +10,15 @@ C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoApp\Nojomo.Core\obj\Debug\net5.0
 C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoApp\Nojomo.Core\obj\Debug\net5.0\Nojomo.Core.dll
 C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoApp\Nojomo.Core\obj\Debug\net5.0\ref\Nojomo.Core.dll
 C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoApp\Nojomo.Core\obj\Debug\net5.0\Nojomo.Core.pdb
+C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoAppRepositorio\Nojomo.Core\bin\Debug\net5.0\Nojomo.Core.deps.json
+C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoAppRepositorio\Nojomo.Core\bin\Debug\net5.0\Nojomo.Core.dll
+C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoAppRepositorio\Nojomo.Core\bin\Debug\net5.0\ref\Nojomo.Core.dll
+C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoAppRepositorio\Nojomo.Core\bin\Debug\net5.0\Nojomo.Core.pdb
+C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoAppRepositorio\Nojomo.Core\obj\Debug\net5.0\Nojomo.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoAppRepositorio\Nojomo.Core\obj\Debug\net5.0\Nojomo.Core.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoAppRepositorio\Nojomo.Core\obj\Debug\net5.0\Nojomo.Core.AssemblyInfo.cs
+C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoAppRepositorio\Nojomo.Core\obj\Debug\net5.0\Nojomo.Core.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoAppRepositorio\Nojomo.Core\obj\Debug\net5.0\Nojomo.Core.dll
+C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoAppRepositorio\Nojomo.Core\obj\Debug\net5.0\ref\Nojomo.Core.dll
+C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoAppRepositorio\Nojomo.Core\obj\Debug\net5.0\Nojomo.Core.pdb
+C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoAppRepositorio\Nojomo.Core\obj\Debug\net5.0\Nojomo.Core.csprojAssemblyReference.cache

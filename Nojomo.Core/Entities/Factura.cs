@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-//using Microsoft.EntityFrameworkCore;
 
-#nullable disable
 
-namespace Core.Entities
+namespace Nojomo.Core.Entities
 {
     [Table("factura")]
     public partial class Factura

@@ -1,9 +1,16 @@
-﻿using Core.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Models;
+using Nojomo.Core.Entities;
 using Nojomo.Core.Interfaces;
+using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Nojomo.Infrastructure.Repositories
@@ -11,10 +18,12 @@ namespace Nojomo.Infrastructure.Repositories
    public class UserRepository:IUserRepository
     {
         private readonly nojomoContext _context;
-     
+       
+
         public UserRepository(nojomoContext context)
         {
             _context = context;
+          
         }
         public async Task<IEnumerable<Usuario>> GetUsers()
         {
@@ -61,5 +70,7 @@ namespace Nojomo.Infrastructure.Repositories
             await _context.SaveChangesAsync();
 
         }
+
+       
     }
 }

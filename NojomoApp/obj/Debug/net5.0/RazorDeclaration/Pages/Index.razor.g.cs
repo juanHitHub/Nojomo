@@ -131,7 +131,7 @@ using Radzen.Blazor;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Index")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998

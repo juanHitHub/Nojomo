@@ -1,7 +1,16 @@
-﻿@page "/"
+﻿@page "/Index"
 
 <h1>Nojomo System</h1>
 
 Welcome to your new app.
+
+<AuthorizeView>
+    <Authorized>
+        <p>Welcome, @context.User.Identity.Name</p>
+    </Authorized>
+    <NotAuthorized>
+        <p>You are Signed out!!!!</p>
+    </NotAuthorized>
+</AuthorizeView>
 
 
