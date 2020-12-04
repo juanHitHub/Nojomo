@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace NojomoApp.Data.UserData
 {
     public interface IUserService
     {
-        Task<IEnumerable<UserDto>> GetUserServiceAsync();
-        Task<bool> SaveUserServiceAsync(UserDto user);
-        Task<bool> DeleteUserServiceAsync(int id);
-        Task<bool> UpdateUserServiceAsync(int id,UserDto user);
-        Task<bool> DeleteMultipleUserServiceAsync(IEnumerable<UserDto> users);
-        Task<UserDto> GetUserIdServiceAsync(int id);
+        Task<UserDto> LoginAsync(UserDto user);
+        public Task<UserDto> RegisterUserAsync(UserDto user);
+        public Task<UserDto> GetUserByAccessTokenAsync(string accessToken);
+        public Task<UserDto> RefreshTokenAsync(RefreshRequest refreshRequest);
     }
 }

@@ -181,7 +181,7 @@ using NojomoApp.Data.UserData;
 #nullable disable
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private Microsoft.AspNetCore.Components.NavigationManager navigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JSRuntime { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IUserService UserService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IUserServiceAdmin UserService { get; set; }
     }
 }
 #pragma warning restore 1591

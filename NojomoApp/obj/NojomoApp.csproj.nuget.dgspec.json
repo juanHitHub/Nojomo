@@ -44,9 +44,21 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Blazored.LocalStorage": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
             "Blazored.Modal": {
               "target": "Package",
               "version": "[5.1.0, )"
+            },
+            "Blazored.SessionStorage": {
+              "target": "Package",
+              "version": "[1.0.12, )"
+            },
+            "EmbeddedBlazorContent": {
+              "target": "Package",
+              "version": "[1.10.0, )"
             },
             "MatBlazor": {
               "target": "Package",

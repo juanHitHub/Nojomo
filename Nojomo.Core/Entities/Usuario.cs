@@ -1,13 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 
-namespace Core.Entities
+
+namespace Nojomo.Core.Entities
 {
     [Table("usuario")]
     public partial class Usuario
     {
+        public Usuario()
+        {
+            RefreshTokens = new HashSet<Refreshtoken>();
+        }
         [Key]
         [Column("id")]
         public int Id { get; set; }
@@ -48,5 +54,6 @@ namespace Core.Entities
         public int? Datosfiscalespredeterminadosid { get; set; }
         [Column("ordenes")]
         public int? Ordenes { get; set; }
+        public virtual ICollection<Refreshtoken> RefreshTokens { get; set; }
     }
 }

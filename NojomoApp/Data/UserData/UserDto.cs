@@ -54,5 +54,8 @@ namespace NojomoApp.Data.UserData
 
         public bool Check { get; set; }
 
+        public string AccessToken { get; set; }
+        public string RefreshToken { get; set; }
+
     }
 }

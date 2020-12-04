@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net5.0": {
+      "Blazored.LocalStorage/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.6",
+          "Microsoft.AspNetCore.Components.Web": "3.1.6"
+        },
+        "compile": {
+          "lib/netstandard2.1/Blazored.LocalStorage.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Blazored.LocalStorage.dll": {}
+        }
+      },
       "Blazored.Modal/5.1.0": {
         "type": "package",
         "dependencies": {
@@ -21,6 +34,28 @@
         },
         "buildMultiTargeting": {
           "buildMultiTargeting/Blazored.Modal.props": {}
+        }
+      },
+      "Blazored.SessionStorage/1.0.12": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.4",
+          "Microsoft.AspNetCore.Components.Web": "3.1.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Blazored.SessionStorage.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Blazored.SessionStorage.dll": {}
+        }
+      },
+      "EmbeddedBlazorContent/1.10.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/EmbeddedBlazorContent.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/EmbeddedBlazorContent.dll": {}
         }
       },
       "MatBlazor/2.8.0": {
@@ -261,6 +296,19 @@
     }
   },
   "libraries": {
+    "Blazored.LocalStorage/3.0.0": {
+      "sha512": "eXpHDvog+nRvAFsrqVKqGrpHXuyPTH8tgAremHKbteP5nNEROlItfP8Xh8pNMpTovuQ4tl3NyfQcG0rnbjQ5jw==",
+      "type": "package",
+      "path": "blazored.localstorage/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "blazored.localstorage.3.0.0.nupkg.sha512",
+        "blazored.localstorage.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/Blazored.LocalStorage.dll"
+      ]
+    },
     "Blazored.Modal/5.1.0": {
       "sha512": "Sw2pWqDWugPFf4BKmO2Cd8SZ4nQluIvgrcINuAFQrCRLoaY1+dp6gGbtEvenLc6pgjyD7TX4eg7qnU4LSpVN6A==",
       "type": "package",
@@ -278,6 +326,30 @@
         "lib/netstandard2.1/Blazored.Modal.dll",
         "staticwebassets/blazored-modal.css",
         "staticwebassets/blazored.modal.js"
+      ]
+    },
+    "Blazored.SessionStorage/1.0.12": {
+      "sha512": "46Ecq7Ek5vjCHjuf9Yia6bIcsgF3gQUYzTvCshoXUj1E3Xg2VD+42PAtWwYEf8yedFZUNdTlaFazjwc5zPHEGw==",
+      "type": "package",
+      "path": "blazored.sessionstorage/1.0.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "blazored.sessionstorage.1.0.12.nupkg.sha512",
+        "blazored.sessionstorage.nuspec",
+        "lib/netstandard2.0/Blazored.SessionStorage.dll"
+      ]
+    },
+    "EmbeddedBlazorContent/1.10.0": {
+      "sha512": "LgsO3NdCNwGdB/k+RbOBTevBtfAoA35ooBR1fi6bXX7OPt/tpV3B5b/i5jNe+1ZSvCWqnoL9WobxyZKnDwELeA==",
+      "type": "package",
+      "path": "embeddedblazorcontent/1.10.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "embeddedblazorcontent.1.10.0.nupkg.sha512",
+        "embeddedblazorcontent.nuspec",
+        "lib/netcoreapp3.1/EmbeddedBlazorContent.dll"
       ]
     },
     "MatBlazor/2.8.0": {
@@ -763,7 +835,10 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Blazored.LocalStorage >= 3.0.0",
       "Blazored.Modal >= 5.1.0",
+      "Blazored.SessionStorage >= 1.0.12",
+      "EmbeddedBlazorContent >= 1.10.0",
       "MatBlazor >= 2.8.0",
       "Newtonsoft.Json >= 12.0.3",
       "Radzen.Blazor >= 2.17.11",
@@ -814,9 +889,21 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "Blazored.LocalStorage": {
+            "target": "Package",
+            "version": "[3.0.0, )"
+          },
           "Blazored.Modal": {
             "target": "Package",
             "version": "[5.1.0, )"
+          },
+          "Blazored.SessionStorage": {
+            "target": "Package",
+            "version": "[1.0.12, )"
+          },
+          "EmbeddedBlazorContent": {
+            "target": "Package",
+            "version": "[1.10.0, )"
           },
           "MatBlazor": {
             "target": "Package",

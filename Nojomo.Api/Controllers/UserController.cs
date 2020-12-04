@@ -1,11 +1,12 @@
-﻿using Core.Entities;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Nojomo.Core.Entities;
 using Nojomo.Core.Interfaces;
-using Nojomo.Infrastructure.Repositories;
 using System.Threading.Tasks;
 
 namespace Nojomo.Api.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
@@ -50,5 +51,7 @@ namespace Nojomo.Api.Controllers
             return Ok(user);
             
         }
+
+       
     }
 }

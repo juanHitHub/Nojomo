@@ -1,4 +1,4 @@
-﻿using Core.Entities;
+﻿using Nojomo.Core.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,5 +11,7 @@ namespace Nojomo.Core.Interfaces
         Task<bool> InsertUser(Usuario user);
         Task DeleteUser(int id);
         Task UpdateUser(int id,Usuario user);
+
+      
     }
 }

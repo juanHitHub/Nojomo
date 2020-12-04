@@ -254,7 +254,7 @@ using Radzen.Blazor;
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IUserService UserService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IUserServiceAdmin UserService { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IModalService modal { get; set; }
     }
 }

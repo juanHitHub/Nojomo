@@ -5,7 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Blazored.LocalStorage" Version="3.0.0" />
     <PackageReference Include="Blazored.Modal" Version="5.1.0" />
+    <PackageReference Include="Blazored.SessionStorage" Version="1.0.12" />
+    <PackageReference Include="EmbeddedBlazorContent" Version="1.10.0" />
     <PackageReference Include="MatBlazor" Version="2.8.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Radzen.Blazor" Version="2.17.11" />

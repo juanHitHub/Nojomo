@@ -131,6 +131,13 @@ using Radzen.Blazor;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 1 "C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoAppRepositorio\NojomoApp\Shared\MainLayout.razor"
+using NojomoApp.Data;
+
+#line default
+#line hidden
+#nullable disable
     public partial class MainLayout : LayoutComponentBase
     {
         #pragma warning disable 1998
@@ -138,6 +145,18 @@ using Radzen.Blazor;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 27 "C:\Users\Admin\Desktop\Escritorio\Trabajo\NojomoAppRepositorio\NojomoApp\Shared\MainLayout.razor"
+      
+    public async Task Logout()
+    {
+      await ((CustomAuthenticationStateProvider)AuthenticationStateProvider).MarkUserAsLoggedOut();
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthenticationStateProvider { get; set; }
     }
 }
 #pragma warning restore 1591
